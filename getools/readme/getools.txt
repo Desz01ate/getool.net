@@ -1,0 +1,45 @@
+GRANADO ESPADA TOOLS
+====================
+GE Tools is a batch file that consolidates the uses of pre-existing command-line files, allowing extraction of IPF, creation of IPF from folder, optimization of IPF, addition of folder to IPF, conversion of IES to XML/PRN, etc. 
+
+[!] WARNING! GE Tools is provided as is. Tamper with the game client at your own risks! If backup restoration fails, you may have to completely reinstall the game client. Client modifications (however harmless) are generally frowned upon, so do not post this in the official forums. Note that many things are server-sided, so changing them in the client may not actually do anything.
+
+You can also run GE Tools directly from the command line or call from another batch file, using parameters to specify the file or folder and the function number. For example, getools.bat ..\ge\ui.ipf 1 will directly use function 1 (Extract IPF) on the specified ui.ipf file.
+
+1. Extract IPF
+This function extracts all the files contained in the selected IPF file into a subfolder where the file resides (e.g. C:\Program Files\Granado Espada\ge folder). If you only want to extract one specific file inside the IPF file, use IPF Extractor instead.
+
+2. Create IPF From Folder
+This function creates an IPF file based on the selected folder. It requires the game client to be closed first, and will not continue if it detects an active ge.exe process. It will replace the existing IPF file with the newly created file. You are given the option to create a backup copy of the original IPF.
+
+3. Optimize IPF
+This function optimizes the selected IPF file(s) by removing duplicates of the same files within them. (Hold Shift or Ctrl key to select multiple files.) It requires the game client to be closed first, and will not continue if it detects an active ge.exe process. You are given the option to create a backup copy of the original IPF. If you prefer the old optimizer, you can still get it here.
+
+Note: I accidentally discovered that IPF files can be optimized directly without converting them to ZIP first (which is what the previous optimizer did). I tested this in Europe client after direct optimization of char_hi.ipf, char_texture.ipf, dictionary.ipf, ies.ipf, shared.ipf, and ui.ipf in Patch 3975. The client is then updated to Patch 4020, which updates all the above-mentioned files. I could login and move to town without any problem. If you encounter a problem with optimization, please let me know the details, and I may consider re-adding ZIP conversion before optimization.
+
+4. Add Folder To IPF
+This function adds the selected folder containing your custom files directly into the existing IPF file. It requires the game client to be closed first, and will not continue if it detects an active ge.exe process. To avoid confusion with other files, the folder must be named in the format of ipfname-REGION-description.af, such as ui-USA-wideinventory.af. You are given the option to create a backup copy of the original IPF.
+
+Note: I have encountered errors with this function where the names of the added files are sometimes truncated. (This happened when I attempted to fix the roulette faction emblems. More on this another day.) If this occurs, you can get around the problem by extracting the IPF first, adding or modifying the desired files, then creating a new IPF from the extracted folder. 
+
+5. Convert IES To XML/PRN
+This function converts IES files (mostly data tables) into XML and PRN files, which can be opened with Microsoft Excel as XML table and tab-delimited table respectively. IES files must first be extracted from ies.ipf file.
+
+6. Restore Backup IPF
+This function restores the selected backup copy of IPF files, usually in Granado Espada\ge\backup folder. It requires the game client to be closed first, and will not continue if it detects an active ge.exe process. The backup copy must be made by GE Tools, which uses the following format: ipfname-function-patch.ipf. If you restore a backup copy with an older patch number, you may have to re-update your entire game client.
+
+
+BUG REPORT
+Do NOT move or rename any file/folder. getools.bat should be inside Granado Espada\tools folder. If you encounter a problem, please provide the following information:
+-Operating system (32 or 64 bit)
+-Service region (e.g. USA) of the game client
+-Drive/path of the game client
+-Drive/path of the extracted tools folder
+
+
+CHANGE LOG - https://starstorm-ge.blogspot.com/2017/09/ge-tools.html
+If you are upgrading from an older version, it is recommended to delete the old folder first to avoid redundant old files.
+
+v3 [09/20/2017] Fixed failure to change drive after admin check if extracted to a non-system drive. Added self-elevation to admin privilege. Added region check when adding folder to IPF. Changed backup file names to use dash (-) instead of underscore (_) to avoid conflict with some files. Changed exe folder to bin folder and added some files. 
+v2 [09/16/2017] Fixed parenthesis anomaly when folder name includes brackets. Added file integrity check.
+v1 [09/02/2017] Initial release.
