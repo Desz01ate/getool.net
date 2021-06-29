@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\kunvu\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\kunvu\\.nuget\\packages"
+    ]
+  }
+}
